@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Jansen Stanlie Tugas 34</title>
+</head>
+
+<body>
+    <div id="hero">
+        <div class="navbar">
+            <img src="./Asset/logo.png" class="logo">
+            <div class="user">
+                <a href="table.html"> <button type="button">create Table</button></a>
+
+                <img src="./Asset/User.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="info">
+                <h1>Portofolio</h1>
+                <p>my name is jansen i am currently exploring skills in the field of fullstack developer which includes
+                    java programming language for backend and html, CSS, and JavaScript for frontend.</p>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="slider">
+            <img src="Asset/left-arrow.png" id="prev">
+            <div class="preview">
+                <img src="Asset/small1.png" class="thumbnail">
+                <img src="Asset/small2.png" class="thumbnail">
+                <img src="Asset/small3.png" class="thumbnail">
+                <img src="Asset/small4.png" class="thumbnail">
+                <img src="Asset/small5.png" class="thumbnail">
+            </div>
+            <img src="Asset/right-arrow.png" id="next">
+        </div>
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array(
+            "Asset/bg1.png",
+            "Asset/bg2.png",
+            "Asset/bg3.png",
+            "Asset/bg4.png",
+            "Asset/bg5.png",
+        );
+        let i = 0;
+
+
+        next.onclick = function () {
+            if (i < 5) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i + 1] + '")';
+                i++;
+                console.log(i);
+                if (i == 4) {
+                    i = -1;
+                } else if (i == 5) {
+                    hero.style.backgroundImage = 'url("' + backgroundImg[0] + '")';
+                    i = -1;
+                }
+            }
+        }
+        prev.onclick = function () {
+            console.log(i);
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i - 1] + '")';
+                i--;
+                if (i == 0) {
+                    i = 5;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
