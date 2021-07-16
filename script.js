@@ -1,76 +1,91 @@
 let dataDummy = [
 	{
+		id:1,
 		nama: "jansen",
 		Umur: 35,
 		alamat: "medan",
 	},
 	{
+		id:2,
 		nama: 'Alfa',
 		Umur: 31,
 		alamat: 'jakarta',
 	},
 	{
+		id:3,
 		nama: 'joko',
 		Umur: 10,
 		alamat: 'solo',
 	},
 	{
+		id:4,
 		nama: 'eko cahyonto',
 		Umur: 20,
 		alamat: 'NTB',
 	},
 	{
+		id:5,
 		nama: 'Stanlie',
 		Umur: 13,
 		alamat: 'Jatim',
 	},
 	{
+		id:6,
 		nama :'Fian',
 		Umur: 24,
 		alamat: 'malang',
 	},
 	{
+		id:7,
 		nama: 'harry rosadi',
 		Umur: 31,
 		alamat: 'Papua',
 	},
 
 	{
+		id:8,
 		nama: 'Dimas',
 		Umur: 23,
 		alamat: 'Bandung',
 	},
 	{
+		id:9,
 		nama: 'Sefrinaldi',
 		Umur: 30,
 		alamat: 'Padang',
 	},
 	{
+		id:10,
 		nama: 'jansen rosadi',
 		Umur: 74,
 		alamat: 'unknown',
 	},
 	{
+		id:11,
 		nama: 'Adzka',
         Umur: 30,
 		alamat: 'Yogyakarta',
 	},
 	{
+		id:12,
 		nama: 'Muhammad wawan',
 		Umur: 55,
 		alamat: 'Galaxy',
 	},
 	{
+		id:13,
 		nama: 'aulia',
 		Umur: 19,
 		alamat: 'medan',
 	},
 	{
+		id:14,
 		nama: 'janson',
         Umur: 21,
 		alamat: 'palembang',
 	},
 	{
+		id:15,
 		nama: 'Lathief',
 		Umur: 30,
 		alamat: 'padang',
@@ -217,18 +232,18 @@ function pagination(querySet, page, rows) {
 function buildTable() {
     var table = $('#table-body')
   
-    var data = pagination(state.querySet, state.page, state.rows)
-    var myList = data.querySet
-    var nomor = 1;
+    var data = pagination(state.querySet, state.page, state.rows);
+    var myList = data.querySet;
+  
     for (var i = 1 in myList) {
       var row = `<tr>
-                    <td>${nomor}</td>
+                    <td>${myList[i].id}</td>
                     <td>${myList[i].nama}</td>
                     <td>${myList[i].Umur}</td>
                     <td>${myList[i].alamat}</td>
                     `
       table.append(row)
-      nomor++;
+     
     }
   
     pageButtons(data.pages)
