@@ -361,7 +361,7 @@ const editRow = (index = "x") => {
 		});
 	const namas = users[index].nama;
 	const id = index + 1;
-	console.log("id", index + 1);
+	console.log("id Users", index + 1);
 
 	// console.log(namas);
 	var lokasiRow = 0;
@@ -378,12 +378,12 @@ const editRow = (index = "x") => {
 	for (let i = 0; i < tdIdData.length; i++) {
 		if (id == tdIdData[i].textContent) {
 			lokasiRow = i;
-			console.log("data", tdIdData[i].textContent);
+			console.log("Id found In table", tdIdData[i].textContent);
 		}
 	}
 	// tdTable[index]
 	// console.log(tdTable[3]);
-	console.log(lokasiRow);
+	console.log("Row Index Location", lokasiRow);
 	const newRowNama = `
             <tr>
             <td>
