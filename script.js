@@ -439,30 +439,36 @@ const saveData = (index = "x") => {
 	const umur = document.querySelector("input[name='umur']");
 	const address = document.querySelector("input[name='address']");
 
+	// if (name.value == "Jansen" && address.value == "Medan") {
+	// 	console.log("true");
+	// } else {
+	// 	console.log("false");
+	// }
 	if (index != "x") {
-		if (name.value == "" && address.value == "" && umur.value == "") {
+		if (name.value == "" || address.value == "") {
 			document.querySelector("button").focus();
 			return alert("Tolong diisi terlebih dahulu form yang disediakan");
-		}
-		if (isNumber(umur.value)) {
-			if (umur.value > 100) {
-				document.querySelector("button").focus();
-				return alert("Umur Tidak boleh lebih dari 100");
-			}
-			console.log("yo");
-			console.log(index);
-			users[index].nama = name.value;
-			users[index].Umur = umur.value;
-			users[index].alamat = address.value;
-			console.log(users);
-			updateStatus = false;
-			generateTable();
 		} else {
-			document.querySelector("button").focus();
-			return alert("kolom Umur harus disi Angka");
+			if (isNumber(umur.value)) {
+				if (umur.value > 100) {
+					document.querySelector("button").focus();
+					return alert("Umur Tidak boleh lebih dari 100");
+				}
+				console.log("yo");
+				console.log(index);
+				users[index].nama = name.value;
+				users[index].Umur = umur.value;
+				users[index].alamat = address.value;
+				console.log(users);
+				updateStatus = false;
+				generateTable();
+			} else {
+				document.querySelector("button").focus();
+				return alert("kolom Umur harus disi Angka");
+			}
 		}
 	} else {
-		if (name.value == "" && address.value == "" && umur.value == "") {
+		if (name.value == "" || address.value == "" || umur.value == "") {
 			document.querySelector("button").focus();
 			return alert("Tolong diisi terlebih dahulu form yang disediakan");
 		}
