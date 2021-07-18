@@ -147,11 +147,13 @@ let users = [
 
 	{
 		id: 15,
-		nama: "wantwo",
+		nama: "Purnomo",
 		Umur: 30,
 		alamat: "padang",
 	},
 ];
+// let idObj = {};
+// let arr = [];
 let filteredUsers = [];
 let updateStatus = false;
 const panjangDatalama = users.length;
@@ -160,7 +162,7 @@ const generateTable = (data = users) => {
 	let tbody = document.querySelector("table > tbody");
 	let tr = document.querySelectorAll("table > tr");
 	let rows = "";
-
+	let i = 0;
 	let startIndex = (pageConfig.currentPage - 1) * pageConfig.showData;
 	let endIndex = startIndex + pageConfig.showData;
 	// halaman 1 = 0 => 0 * 2 = 0
@@ -176,7 +178,7 @@ const generateTable = (data = users) => {
 
 		rows += `
             <tr>
-                <td align="center">${index + 1}</td>
+                <td class="idData">${index + 1}</td>
                 <td class="cell-nama">${user.nama}</td>
                 <td class="cell-umur">${user.Umur}</td>
                 <td class="cell-alamat">${user.alamat}</td>
@@ -346,20 +348,24 @@ const addRow = () => {
             </tr>
         `;
 	tbody.innerHTML = newRow + tbody.innerHTML;
-
+	mapEventAddNew();
 	updateStatus = true;
 };
 
 //!!For Edit Press The Save BUTTON instead of Enter
 const editRow = (index = "x") => {
-	// const nama = document
-	// 	.querySelectorAll("table > tbody > tr")
-	// 	.forEach(function (x) {
-	// 		console.log(x);
-	// 	});
+	const nama = document
+		.querySelectorAll("table > tbody > tr>td.idData")
+		.forEach(function (x) {
+			console.log(x);
+		});
 	const namas = users[index].nama;
-	console.log(namas);
+	const id = index + 1;
+	console.log("id", index + 1);
+
+	// console.log(namas);
 	var lokasiRow = 0;
+	const tdIdData = document.querySelectorAll("table > tbody > tr>td.idData");
 	const tdNama = document.querySelectorAll("table > tbody > tr>td.cell-nama");
 	const tdUmur = document.querySelectorAll("table > tbody > tr>td.cell-umur");
 	const tdAlamat = document.querySelectorAll(
@@ -367,11 +373,12 @@ const editRow = (index = "x") => {
 	);
 	const tdCrud = document.querySelectorAll("table > tbody > tr>td.Crud");
 	const tdCruds = document.querySelectorAll("table > tbody > tr>td.Cruds");
+	console.log("idData", tdIdData);
 
-	for (let i = 0; i < tdNama.length; i++) {
-		if (namas === tdNama[i].textContent) {
+	for (let i = 0; i < tdIdData.length; i++) {
+		if (id == tdIdData[i].textContent) {
 			lokasiRow = i;
-			console.log(tdNama[i].textContent);
+			console.log("data", tdIdData[i].textContent);
 		}
 	}
 	// tdTable[index]
@@ -447,6 +454,7 @@ const saveData = (index = "x") => {
 			users[index].nama = name.value;
 			users[index].Umur = umur.value;
 			users[index].alamat = address.value;
+			console.log(users);
 			updateStatus = false;
 			generateTable();
 		} else {
@@ -488,7 +496,7 @@ const resetSearch = () => {
 
 const __init = () => {
 	generateTable();
-	mapEventAddNew();
+
 	resetSearch();
 };
 __init();
