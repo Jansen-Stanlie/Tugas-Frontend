@@ -325,7 +325,8 @@ const addRow = () => {
 	const tbody = document.querySelector("table > tbody");
 	const input = document.querySelector("input");
 
-	if (updateStatus) return alert("Form harus di Isi sebelum membuat Form baru");
+	if (updateStatus)
+		return alert("Form harus di Isi sebelum membuat Form baru lagi");
 
 	const newRow = `
             <tr>
