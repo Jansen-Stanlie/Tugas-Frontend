@@ -456,9 +456,15 @@ const saveData = (index = "x") => {
 				}
 				console.log("yo");
 				console.log(index);
-				users[index].nama = name.value;
-				users[index].Umur = umur.value;
-				users[index].alamat = address.value;
+				let userBaru = {
+					nama: name.value,
+					Umur: umur.value,
+					alamat: address.value,
+				};
+				users.splice(index, 1, userBaru);
+				// users[index].nama = name.value;
+				// users[index].Umur = umur.value;
+				// users[index].alamat = address.value;
 				console.log(users);
 				updateStatus = false;
 				generateTable();
@@ -489,7 +495,6 @@ const saveData = (index = "x") => {
 			return alert("kolom Umur harus disi Angka");
 		}
 	}
-
 	updateStatus = false;
 	generateTable();
 };
