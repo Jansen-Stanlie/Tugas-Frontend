@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="JSON.js"></script>
+    <title>Table Tugas JSON</title>
+</head>
+
+<body>
+    <div class="col-sm-9">
+        <h1>Tugas Table JSON </h1>
+        <br>
+        <button id="addButton" class="btn btn-primary" onclick="addRow()">Add New</button><br>
+        <input class="input-group-text" type="text" name="search" onkeyup="filterRow(this)"
+            placeholder="Search for names.." title="Type in a name">
+        <br>
+        <table border="2" class="table table-striped" id="our-table">
+            <thead class="table-dark">
+                <tr>
+                    <th>No</th>
+                    <th>Nama Foto</th>
+                    <th>Nama Album</th>
+                    <th>User</th>
+                    <th>Thumbnail</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+        </table>
+        <a href="index.html" class="btn btn-danger">Back</a>
+        <!-- <button type="button" class="btn btn btn-success" onclick="saveRow();">Save</button>
+        <button type="button" class="btn btn-danger" onclick="reset();">Cancel </button> <br> -->
+        <div class="containers ">
+            <div class="pagination"></div>
+        </div>
+
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</body>
+
+
+
+</html>
