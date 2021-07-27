@@ -8,7 +8,7 @@ class Input extends Component {
 	}
 
 	render() {
-		const { name, type, value, onChange } = this.props;
+		const { name, type, value, onChange, placeholder } = this.props;
 		return (
 			<input
 				className="input-style"
@@ -17,6 +17,7 @@ class Input extends Component {
 				value={value}
 				onChange={onChange}
 				ref={(c) => (this.input = c)}
+				placeholder={placeholder}
 				required
 			/>
 		);

@@ -7,8 +7,14 @@ class RowInput extends Component {
 		this.state = {};
 	}
 	render() {
-		const { label, nameInput, typeInput, valueInput, onChangeEvent } =
-			this.props;
+		const {
+			label,
+			nameInput,
+			typeInput,
+			valueInput,
+			onChangeEvent,
+			placeholder,
+		} = this.props;
 		return (
 			<div className="rowInput">
 				<span>{label}</span>
@@ -17,6 +23,7 @@ class RowInput extends Component {
 					type={typeInput ? typeInput : "text"}
 					value={valueInput}
 					onChange={onChangeEvent}
+					placeholder={placeholder}
 				/>
 			</div>
 		);

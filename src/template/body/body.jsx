@@ -50,7 +50,8 @@ class Body extends Component {
 					setUser={setUser}
 				/>
 			);
-		if (page === "Register") return <Register />;
+		if (page === "Register")
+			return <Register dataUser={this.state.users} setStatus={setStatus} />;
 	};
 	render() {
 		return (

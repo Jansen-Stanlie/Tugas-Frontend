@@ -45,3 +45,7 @@ button {
 button:hover {
 	color: red;
 }
+.sign {
+	display: block;
+	margin-left: -7000px;
+}
