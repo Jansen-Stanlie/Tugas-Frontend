@@ -6,76 +6,23 @@ class About extends Component {
 	}
 
 	renderList = () => {
-		const { dataUser } = this.props;
+		const { dataUser, userNow } = this.props;
 
 		return dataUser.map((user, index) => {
-			if (user.status && user.status === "new") {
+			if (userNow === user.name) {
 				return (
 					<tr key={index}>
-						<td></td>
+						<td>{index + 1}</td>
+						<td>{user.name}</td>
+						<td>{user.username}</td>
+						<td>{user.address}</td>
 						<td>
-							<input
-								type="text"
-								name="userInputName"
-								ref={(c) => (this.inputName = c)}
-							/>
-						</td>
-						<td>
-							<input
-								type="number"
-								name="userInputAge"
-								ref={(c) => (this.inputAge = c)}
-							/>
-						</td>
-						<td>
-							<input
-								type="text"
-								name="userInputAddress"
-								ref={(c) => (this.inputAdress = c)}
-							/>
-						</td>
-						<td>
-							<button onClick={() => this.onSave(index)}>Save</button>
-							<button>Cancel</button>
+							<button onClick={() => this.onEditHandler(index)}>Edit</button>
+							<button onClick={() => this.onDelete(index)}>Delete</button>
 						</td>
 					</tr>
 				);
 			}
-			if (user.status && user.status === "edit")
-				return (
-					<tr key={index}>
-						<td>{index + 1}</td>
-						<td>
-							<input
-								name="userInputName"
-								type="text"
-								value={this.state.userInputName}
-								onChange={this.onChangeHandler}
-							/>
-						</td>
-						<td>
-							<input
-								name="userInputAge"
-								type="number"
-								value={this.state.userInputAge}
-								onChange={this.onChangeHandler}
-							/>
-						</td>
-						<td>
-							<input
-								name="userInputAddress"
-								type="text"
-								value={this.state.userInputAddress}
-								onChange={this.onChangeHandler}
-							/>
-						</td>
-						<td>
-							<button onClick={() => this.onSave(index)}>Save</button>
-							<button onClick={() => this.cancelEdit()}>Cancel</button>
-						</td>
-					</tr>
-				);
-
 			return (
 				<tr key={index}>
 					<td>{index + 1}</td>
@@ -83,7 +30,6 @@ class About extends Component {
 					<td>{user.username}</td>
 					<td>{user.address}</td>
 					<td>
-						<button onClick={() => this.onEditHandler(index)}>Edit</button>
 						<button onClick={() => this.onDelete(index)}>Delete</button>
 					</td>
 				</tr>
