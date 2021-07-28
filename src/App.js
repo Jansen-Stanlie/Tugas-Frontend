@@ -9,6 +9,10 @@ class App extends Component {
 			statusLogin: false,
 			navName: "Home",
 			UserLog: "",
+			id: "",
+			title: "Register New User",
+			statusEdit: "No Edit",
+			tombol: "Register",
 		};
 	}
 	changeStatus = (status, page) => {
@@ -27,6 +31,26 @@ class App extends Component {
 			UserLog: user,
 		});
 	};
+	changeIDedit = (id) => {
+		this.setState({
+			id: id,
+		});
+	};
+	changetitle = (title) => {
+		this.setState({
+			title: title,
+		});
+	};
+	changeStatusEdit = (status) => {
+		this.setState({
+			statusEdit: status,
+		});
+	};
+	changeTombol = (eNew) => {
+		this.setState({
+			tombol: eNew,
+		});
+	};
 	render() {
 		console.log(this.state.currentPage);
 		console.log(this.state.navName);
@@ -39,14 +63,25 @@ class App extends Component {
 					setStatus={this.changeStatus}
 					setNav={this.state.navName}
 					setNavchange={this.changeNavName}
+					changeStatus={this.changeStatusEdit}
+					changeTitle={this.changetitle}
+					changeTombol={this.changeTombol}
 				/>
 				<Body
 					loginStatus={this.state.statusLogin}
 					page={this.state.currentPage}
 					setStatus={this.changeStatus}
+					status={this.state.statusEdit}
 					setNavs={this.changeNavName}
 					setUser={this.changeUserLog}
 					userNew={this.state.UserLog}
+					sendID={this.changeIDedit}
+					sendNewID={this.state.id}
+					changeStatus={this.changeStatusEdit}
+					setTitle={this.state.title}
+					changeTitle={this.changetitle}
+					changeTombol={this.changeTombol}
+					tombol={this.state.tombol}
 				/>
 			</>
 		);

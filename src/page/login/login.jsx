@@ -29,6 +29,7 @@ class Login extends Component {
 				this.props.setNav("LogOut");
 				this.props.setStatus(true, "About");
 				this.props.setUser(dataUsers[index].name);
+				this.props.changeTombol("Edit");
 				return SweetAlert.fire("Welcome", dataUsers[index].name, "success");
 			}
 		}

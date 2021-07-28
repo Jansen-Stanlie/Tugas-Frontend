@@ -22,11 +22,11 @@
 	color: #fff;
 	position: absolute;
 	right: 0;
-	top: 40%;
+	top: 50%;
 	transform: translateY(-50%);
 }
 .info h1 {
-	font-size: 60px;
+	font-size: 30px;
 	letter-spacing: 10px;
 }
 .info p {

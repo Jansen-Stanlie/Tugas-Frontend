@@ -7,7 +7,10 @@ class About extends Component {
 
 	renderList = () => {
 		const { dataUser, userNow } = this.props;
-
+		const mystyle = {
+			color: "white",
+			backgroundColor: "DodgerBlue",
+		};
 		return dataUser.map((user, index) => {
 			if (userNow === user.name) {
 				return (
@@ -17,8 +20,9 @@ class About extends Component {
 						<td>{user.username}</td>
 						<td>{user.address}</td>
 						<td>
-							<button onClick={() => this.onEditHandler(index)}>Edit</button>
-							<button onClick={() => this.onDelete(index)}>Delete</button>
+							<button style={mystyle} onClick={() => this.onEditHandler(index)}>
+								Edit
+							</button>
 						</td>
 					</tr>
 				);
@@ -35,6 +39,14 @@ class About extends Component {
 				</tr>
 			);
 		});
+	};
+	onEditHandler = (id) => {
+		const { statusLogin } = this.props;
+		this.props.sendID(id);
+		console.log("id", id);
+		this.props.setTitle("Edit User");
+		this.props.setStatusEdit("edit");
+		this.props.setStatus(statusLogin, "Register");
 	};
 	onDelete = (id) => {
 		let userUpdate = this.state.users;

@@ -36,6 +36,9 @@ class header extends Component {
 		if (setNav === "LogOut") {
 			this.props.setStatus(false, "Home");
 			this.props.setNavchange("Home");
+			this.props.changeStatus("No Edit");
+			this.props.changeTitle("Register New User");
+			this.props.changeTombol("Register");
 			// this.setState({
 			// 	navHome: "Home",
 			// });

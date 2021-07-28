@@ -27,6 +27,7 @@ class Body extends Component {
 						username: data.username,
 						password: "12345",
 						address: data.address.city,
+						email: data.email,
 					};
 				});
 				console.log("JSONDATA:", dataArr);
@@ -35,11 +36,40 @@ class Body extends Component {
 				});
 			});
 	}
+	changeUserListNew = (user) => {
+		this.setState({
+			users: user,
+		});
+	};
 	onChangePage = () => {
-		const { loginStatus, page, setStatus, setNavs, setUser, userNew } =
-			this.props;
+		const {
+			loginStatus,
+			page,
+			setStatus,
+			setNavs,
+			setUser,
+			userNew,
+			sendID,
+			setTitle,
+			changeStatus,
+			changeTitle,
+			status,
+			tombol,
+			changeTombol,
+			sendNewID,
+		} = this.props;
 		if (page === "About")
-			return <About userNow={userNew} dataUser={this.state.users} />;
+			return (
+				<About
+					userNow={userNew}
+					dataUser={this.state.users}
+					sendID={sendID}
+					setTitle={changeTitle}
+					setStatus={setStatus}
+					statusLogin={loginStatus}
+					setStatusEdit={changeStatus}
+				/>
+			);
 		if (page === "Home")
 			return (
 				<Home
@@ -48,10 +78,24 @@ class Body extends Component {
 					dataUser={this.state.users}
 					setNav={setNavs}
 					setUser={setUser}
+					changeTombol={changeTombol}
 				/>
 			);
 		if (page === "Register")
-			return <Register dataUser={this.state.users} setStatus={setStatus} />;
+			return (
+				<Register
+					statusLogin={loginStatus}
+					dataUser={this.state.users}
+					setStatus={setStatus}
+					setNav={setNavs}
+					setStatusNow={status}
+					setTitle={setTitle}
+					tombol={tombol}
+					sendID={sendNewID}
+					changeUser={this.changeUserListNew}
+					setUser={setUser}
+				/>
+			);
 	};
 	render() {
 		return (

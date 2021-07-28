@@ -9,7 +9,7 @@ class Home extends Component {
 	}
 
 	render() {
-		const { setStatus, dataUser, setNav, setUser } = this.props;
+		const { setStatus, dataUser, setNav, setUser, changeTombol } = this.props;
 		return (
 			<div id="hero">
 				<div className="container">
@@ -26,6 +26,7 @@ class Home extends Component {
 							setStatus={setStatus}
 							setNav={setNav}
 							setUser={setUser}
+							changeTombol={changeTombol}
 						/>
 					</div>
 				</div>
