@@ -1,0 +1,9 @@
+Button {
+	float: right;
+	padding-right: 20px;
+}
+.container-button {
+	max-width: 1500px;
+	display: table;
+	width: 100%;
+}
