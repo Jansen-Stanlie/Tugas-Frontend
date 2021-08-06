@@ -17,7 +17,7 @@ const authReducer = (state = defaultState, action) => {
 			return {
 				...state,
 				statuslogin: false,
-				user: [...state.user, action.payload.user],
+				user: [...state.user],
 			};
 		case "renderData":
 			return {

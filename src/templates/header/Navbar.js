@@ -64,6 +64,6 @@ const mapStateToProps = (state) => ({
 	status: state.Auth.statuslogin,
 });
 const mapDispatchToProps = (dispatch) => ({
-	loginOut: (user) => dispatch({ type: "LOGOUT", payload: { user } }),
+	loginOut: (user) => dispatch({ type: "LOGOUT" }),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
