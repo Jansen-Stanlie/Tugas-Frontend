@@ -143,6 +143,6 @@ const mapStateToProps = (state) => ({
 	status: state.Auth.statuslogin,
 });
 const mapDispatchToProps = (dispatch) => ({
-	Register: (user) => dispatch({ type: "register", payload: { user } }),
+	Register: (user) => dispatch({ type: "register" }),
 });
-export default connect(mapDispatchToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

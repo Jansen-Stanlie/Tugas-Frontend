@@ -27,6 +27,7 @@ const authReducer = (state = defaultState, action) => {
 		case "register":
 			return {
 				...state,
+				user: [action.payload.user],
 			};
 		default:
 			return defaultState;
