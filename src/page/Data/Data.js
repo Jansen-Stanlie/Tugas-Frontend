@@ -6,6 +6,9 @@ class Data extends Component {
 		super(props);
 		this.state = {};
 	}
+	onEditHandler = (id) => {
+		console.log(parseInt(id));
+	};
 	renderList() {
 		const { userList } = this.props;
 		console.log("data", userList);
@@ -20,7 +23,7 @@ class Data extends Component {
 					<td>{user.username}</td>
 					<td>{user.password}</td>
 					<td>
-						<button style={mystyle} onClick={() => this.onEditHandler(index)}>
+						<button style={mystyle} onClick={() => this.onEditHandler(user.id)}>
 							Edit
 						</button>
 					</td>

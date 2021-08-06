@@ -8,7 +8,7 @@ class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: "",
+			email: "",
 			password: "",
 			user: [],
 			redirect: false,
@@ -26,11 +26,11 @@ class Login extends Component {
 		console.log("data dari belakang", userList);
 
 		event.preventDefault();
-		console.log(`email :`, this.state.username);
+		console.log(`email :`, this.state.email);
 		console.log(`password :`, this.state.password);
 		for (let index = 0; index < userList.length; index++) {
 			if (
-				this.state.username === userList[index].username &&
+				this.state.email === userList[index].username &&
 				this.state.password === userList[index].password
 			) {
 				this.props.loginMasuk();
@@ -42,7 +42,7 @@ class Login extends Component {
 		Swal.fire("Opss...", "Login is gagal!", "error");
 	};
 	render() {
-		const { username, password } = this.state;
+		const { email, password } = this.state;
 		if (this.state.redirect) return <Redirect to="/data" />;
 		return (
 			<>
@@ -52,11 +52,11 @@ class Login extends Component {
 							<h1>Sign in</h1>
 							<div className="social-container"></div>
 							<RowInput
-								name="username"
+								name="email"
 								typeInput=""
 								placeholder="Email"
 								nameInput="username"
-								value={username}
+								value={email}
 								onChange={this.handleChange}
 							/>
 							<RowInput
