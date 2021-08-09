@@ -16,7 +16,7 @@ class Firebase {
 	}
 
 	createFirebaseUser = (obj) =>
-		this.auth.createUserWithEmailAndPassword(obj.email, obj.password);
+		this.auth.createUserWithEmailAndPassword(obj.username, obj.password);
 
 	loginFirebaseUser = (obj) =>
 		this.auth.signInWithEmailAndPassword(obj.email, obj.password);

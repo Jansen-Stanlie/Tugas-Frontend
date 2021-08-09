@@ -4,8 +4,9 @@ import "./register.css";
 import SweetAlert from "sweetalert2";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import User from "../../services/User";
-class Register extends Component {
+import { FirebaseContext } from "../../config/firebase";
+// import User from "../../services/User";
+class RegisterFirebase extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -26,6 +27,7 @@ class Register extends Component {
 	onCheckRegister = (event) => {
 		event.preventDefault();
 		const { userList } = this.props;
+		const { username, password } = this.state;
 		console.log(userList);
 		console.log("this.state.username", this.state.username);
 		console.log("this.state.Check", this.state.Checkpassword);
@@ -71,29 +73,40 @@ class Register extends Component {
 			);
 		}
 
-		SweetAlert.fire(
-			"SUCCESS REGISTER",
-			` Succes Register for ${this.state.username}`,
-			"success"
-		);
-		const userbaru = {
-			username: this.state.username,
-			password: this.state.password,
-		};
-		User.createUser(userbaru);
-		return this.setState({
-			redirect: true,
-		});
+		this.props.firebase
+			.createFirebaseUser({ username, password })
+			.then((res) => console.log("res:", res))
+			.then(() => {
+				this.setState({
+					redirect: true,
+				});
+			})
+			.then(() => {
+				SweetAlert.fire(
+					"SUCCESS REGISTER",
+					` Succes Register for ${this.state.username}`,
+					"success"
+				);
+			})
+			.catch((err) => SweetAlert.fire("Error", err.message, "error"));
+		// const userbaru = {
+		// 	username: this.state.username,
+		// 	password: this.state.password,
+		// };
+		// User.createUser(userbaru);
+		// return this.setState({
+		// 	redirect: true,
+		// });
 	};
 	render() {
 		const { username, password, Checkpassword } = this.state;
-		if (this.state.redirect) return <Redirect to="/login" />;
+		if (this.state.redirect) return <Redirect to="/loginfirebase" />;
 		return (
 			<>
 				<div className="container" id="container">
 					<div className="form-container sign-in-container">
 						<form onSubmit={this.onCheckRegister}>
-							<h1>Sign UP</h1>
+							<h1>Sign Up Via Firebase</h1>
 							<div className="social-container"></div>
 							<RowInput
 								name="username"
@@ -135,6 +148,19 @@ class Register extends Component {
 					</div>
 				</div>
 			</>
+		);
+	}
+}
+class Register extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+	}
+	render() {
+		return (
+			<FirebaseContext.Consumer>
+				{(firebase) => <RegisterFirebase {...this.props} firebase={firebase} />}
+			</FirebaseContext.Consumer>
 		);
 	}
 }
