@@ -1,0 +1,41 @@
+.nav-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	/* height: 70px; */
+	/* border: 1px solid red; */
+	margin-bottom: 30px;
+	/* background-color: rgba(248, 32, 32, 0.692); */
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	margin-top: 0px;
+}
+
+.logo {
+	width: 150px;
+	font-weight: bold;
+	font-family: "Courier New", Courier, monospace;
+}
+
+.menu-item {
+	display: inline-block;
+	padding: 5px 15px;
+	border: 1px solid grey;
+	border-radius: 4px;
+	margin-right: 20px;
+	cursor: pointer;
+	margin-left: 20px;
+}
+
+.menu-item:hover {
+	background-color: lightgrey;
+}
+
+.menu-item.active {
+	background-color: grey;
+}
+
+.menu-item:last-child {
+	margin-right: 0;
+}
