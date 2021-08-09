@@ -42,7 +42,7 @@ class Body extends Component {
 				<Route path="/parking">
 					<ParkingPage />
 				</Route>
-				<Route path="">
+				<Route exact path="/">
 					<Home />
 				</Route>
 			</Switch>
